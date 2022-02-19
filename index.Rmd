@@ -1,0 +1,506 @@
+---
+title: "Creación de Tablas"
+subtitle: "Uso del Paquete kableExtra"  
+author: Carlos Puma
+role: "Desconexión moral en estudiantes de una ciudad de Arequipa"
+company: UNSA
+#date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    seal: false
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.path="figs/", fig.width=9, fig.height=3.5, echo=FALSE, warning=FALSE, message=FALSE, fig.retina=3, fig.asp=.5, out.width='100%', fig.showtext = TRUE, comment = NULL, hiline = TRUE, cache = FALSE)
+# for cran plots
+library(cranlogs)
+library(bakeoff)
+library(epoxy)
+# for fonts
+library(showtext)
+library(xaringanExtra)
+library(xaringanthemer)
+library(kableExtra)
+library(knitr)
+library(tidyverse)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF",
+  header_font_google = google_font("Amatic SC"), #Cambia el tipo de letra de los titulos
+  text_font_google = google_font("Libre Baskerville"),  #cambia el tipos de letra del texto 
+  header_h1_font_size = "3.5rem", #cambia el tamaño de los títulos
+  header_h2_font_size = "2.7rem", #cambia el tamaño de subtitulos
+  text_font_size = "0.8rem",#cambia el tamaño del texto
+  table_row_even_background_color = "#F8F9FA" #Cambia el color de relleno de las tablas
+# para ver más funciones ver https://www.rdocumentation.org/packages/xaringanthemer/versions/0.4.0/topics/style_duo_accent
+)
+```
+
+```{r xaringan-extra-styles, echo=FALSE}
+xaringanExtra::use_extra_styles(hover_code_line = TRUE, mute_unhighlighted_code = FALSE)
+```
+
+
+
+
+class: title-slide, left, middle
+background-image: url("https://pbs.twimg.com/media/FH84FssVIAcZrUp?format=jpg&name=small")
+background-position: right
+background-size: contain
+background-color: #8E3B46
+
+.pull-left[
+
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$subtitle`
+
+### `r rmarkdown::metadata$author`
+
+### `r rmarkdown::metadata$date`
+]
+
+---
+
+name: hello
+class: inverse, right, bottom
+background-color: #477890
+
+<img style="border-radius: 50%;" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/cp0/268055985_305487591626398_3079146768246346879_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=aee45a&_nc_eui2=AeE7wWW1mPIM9ObQaavivn_Ny69MH2ynMQ7Lr0wfbKcxDh4tqiwUsdVPMpxFpkNw70g1ca0PWcxaJ9ial8h8T4MA&_nc_ohc=U5WvVKGig6gAX_BipLz&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKWMXNnE-V-c9U9Zw97aiVAtctulnd3uZ3gh6FurBxelg&oe=622B58A9" width="150px"/>
+
+# Redes...
+
+  <a href="https://twitter.com/PumaMaque"><img src="https://cdn-icons-png.flaticon.com/128/733/733635.png" width="20px"><span style="font-size:20px"><span style="color:white">@Carlos_Puma</span></span><br/>
+  <a href="https://github.com/cmaque4"><img src="https://cdn-icons-png.flaticon.com/128/733/733609.png" alt="twitter" width="20px"><span style="font-size:20px"><span style="color:white">@Carlos_Puma</span></span><br/>
+  <a href="https://rpubs.com/Carlos_Puma"><img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="twitter" width="20px"> <span style="font-size:20px"><span style="color:white">RPubs.Carlos.Puma</span>
+  
+---
+background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/273112162_1085417732253760_2466194983918610087_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeGr7EFiqzAuEsswmRpcFcXpEGnMxGik0uEQaczEaKTS4ckqqmwdk26XREPgBHQRXyWrAZOxQnLD2r3eDuVgK9jG&_nc_ohc=-vDaU-tlgUsAX8q0fBY&_nc_ht=scontent.faqp3-1.fna&oh=00_AT-WH1jJxkqqCwapDU-4U7N3BNmmQ4lgIKwCR7dY668RaA&oe=6211E4BB)
+background-position: left
+background-size: 50%
+class: middle
+
+
+.pull-right[
+# Descargar y Llamar el Paquete
+
+Podemos realizarlo de dos formas 
+
+- Instalar directamente con este código
+
+````markdown
+install.packages("kableExtra")
+```
+- Otra forma es poder hacerlo desde la carpeta
+
+````markdown
+devtools::install_github("haozhu233/kableExtra")
+```
+- Finalmente tenemos que llamar a nuestro paquete
+
+````markdown
+library(kableExtra)
+```
+]
+
+---
+
+class: center, middle, inverse
+background-color: #CA6702
+
+# Tablas Pequeñas
+<hr>
+
+---
+
+class: middle, inverse
+background-color: #246A73
+
+# Utilizar código markdown
+
+--
+
+<span style="color:white">Para construir una tabla sencilla, con pocos datos se puede hacer teniendo en cuenta lo siguiente:</span>
+
+
+--
+<span style="color:white">1. Las separaciones de las columnas se hacen con el código "|"</span>
+
+
+--
+
+<span style="color:white">2. Para hacer las filas separándolas se utiliza el guión: -----. Junto con esto no se debe olvidar los separadores de las columnas: ----------|-----------|-----------</span>
+
+--
+
+<span style="color:white"> 3. Se puede utilizar los dos puntos":" para hacer la alineación de las columnas</span>
+
+--
+
+- <span style="color:white">|:----| ajustará el contenido a la izquierda (comportamiento por defecto).</span>
+- <span style="color:white">|----:| ajustará el contenido a la derecha.</span>
+- <span style="color:white">|:---:| ajustará el contenido al centro</span>
+
+
+---
+
+name: parameters
+
+
+# Ejemplo 
+
+
+.pull-left[
+<div><p style = 'right;margin:3px 0px'>
+<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/273735893_343780224311550_610454075782690286_n.png?_nc_cat=105&ccb=1-5&_nc_sid=aee45a&_nc_eui2=AeHduRlv-q3BPZu8p0qYe5ozzigFpdMU_fHOKAWl0xT98UlMokJmJ7y8MCUtyLww56YdfTuuykHjplX-ty6I37Ir&_nc_ohc=GJsvGMe9xD0AX8w-V7Q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVJHvf7GKeHm98HFi1XqxtA_3cuBhRMmBRq3uF6oELH4_Q&oe=623282E5"width="600px" height="310px"></p></div>
+]
+
+---
+template: parameters
+
+--
+
+.pull-right[
+
+| Plátanos | Manzanas | Peras |
+|-------|-------------|---------|
+| 20 | 20 | 100 |
+| 21 | 25 | 100 |
+| 22 | 30 | 100 |
+| 23 | 35 | 100 |
+| 24 | 40 | 100 |
+
+
+]
+
+---
+
+class: center, middle, inverse
+background-color: #141B41
+
+# Tablas 
+<hr>
+
+---
+
+.pull-left[
+
+## Base
+
+- Primero debemos tener una base de datos para ser colocada como tabla
+
+- Esta base de datos la podemos tener en un excel y traerlo a nuestro `Environment` o podemos crearlo como veremos más adelante
+
+- Otra forma de hacer una tabla es en conjunto con otras funciones las cuales podemos ejercularlas con la función `pipe(%>%)`
+
+<br>
+
+````markdown
+tablas <- read_xlsx("D:\\Proyectos\\Hoja de cálculo sin título.xlsx")
+```
+
+]
+
+
+.pull-right[
+
+<br><br><br><br>
+
+- Tabla HTML básica
+
+```{r echo=TRUE}
+kableExtra::kbl(tablas)
+```
+
+]
+
+---
+
+## Temas Alternativos
+
+.pull-left[
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_paper("hover", #Esto hace que resalte la parte de la fila que señalamos, otras opciones son "basic", "striped"
+              full_width = F, 
+              html_font = "sans-serif") #Podemos agregar cualquier tipo de letra, solo tenemos que escribirlo entre las comillas. Ej. arial, helvetica, sans-serif, Cambria
+```
+
+<br>
+
+]
+
+
+.pull-right[
+
+```{r echo=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_paper("hover",
+              full_width = F,
+              html_font = "Times New Roman")
+```
+
+]
+
+---
+
+## kable_classic()
+
+.pull-left[
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl(caption = "Recreating booktabs style table") %>% #con caption podemos dar un titulo a nuesta tablra
+  kable_classic(full_width = F, 
+                html_font = "Cambria" #podemos cambiar el tipo de tema
+                ) 
+```
+
+<br>
+
+]
+
+
+.pull-right[
+
+```{r echo=FALSE}
+tablas %>%
+  kbl(caption = "Titulo de la tabla") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+]
+
+---
+
+## Otros estilos de tablas que podemos utilizar
+
+.pull-left[
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_material_dark()
+```
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_classic()
+```
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_classic_2()
+```
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_minimal()
+```
+
+<br>
+
+]
+
+
+.pull-right[
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_material()
+```
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  kbl() %>%
+  kable_material_dark()
+```
+
+]
+
+---
+
+## kable_styling()
+
+.pull-left[
+
+```{r echo=TRUE, eval=FALSE}
+tablas %>%
+  knitr::kable() %>% 
+  kable_styling(bootstrap_options = "basic",
+  latex_options = "basic",
+  full_width = NULL,
+  position = "center",
+  font_size = NULL,
+  row_label_position = "l",
+  repeat_header_method = c("append", "replace"),
+  repeat_header_continued = FALSE,
+  stripe_index = NULL,
+  latex_table_env = NULL,
+  protect_latex = TRUE,
+  table.envir = "table",
+  fixed_thead = FALSE,
+  htmltable_class = NULL,
+  html_font = NULL,
+  wraptable_width = "0pt"
+  )
+```
+
+]
+
+
+.pull-right[
+
+Se puede modificar nuestra tabla como querramos con la función `kable_styling`, como es el tamaño de nuestra tabla como de su ubicación o tipo de fuentes etc. Solo debemos tener en cuenta los parametros que estan en el paquete o tambien con la ayuda `??kable_styling`
+
+```{r echo=FALSE}
+tablas %>% 
+  knitr::kable() %>% 
+  kable_styling(font_size = 12,
+                position ="center",
+                html_font = "Times New Roman",
+                full_width = F,
+                bootstrap_options = c( "hover", "condensed", "responsive"), 
+                latex_options = c("striped", "hold_position"))
+```
+
+]
+
+---
+
+## Como crear especificando fila y columna
+
+Para crear una tabla con datos que queramos podemos hacerla desde cero siguiendo los siguientes pasos:
+
+<br>
+
+
+.pull-left[
+
+```{r echo=TRUE, eval=FALSE}
+ejemplo <- data.frame(
+  Datos = c("Dato 1", "Dato 2", "Dato 3"),
+  Información = c(
+    "Hay cuatro estaciones en el año. ",
+    "El abecedario comienza con la A. ", 
+    "En la noche sale la luna. "
+  ),
+  Manzanas = c("1","2","3")
+)
+```
+
+]
+
+<br>
+
+
+.pull-right[
+
+```{r echo=FALSE}
+kable(ejemplo) %>%
+  kable_styling(full_width = F) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(2, width = "30em") %>% 
+  column_spec(3, width = "10em")
+```
+
+]
+
+---
+
+## Más Personalización
+
+.pull-left[
+
+```{r echo=TRUE, eval=FALSE}
+ejemplo %>% 
+  kableExtra::kbl(booktabs = T) %>% 
+  kable_styling(full_width = F,
+                latex_options = "striped") %>%
+  column_spec(1,width = "5em", bold = T, color = "red") %>%
+  column_spec(2, width = "17em") %>% 
+  column_spec(3, width = "5em")
+```
+
+<br>
+
+```{r echo=TRUE, eval=FALSE}
+ejemplo %>% 
+  kbl(booktabs = T, linesep = "") %>%
+  kable_paper(full_width = F) %>%
+  column_spec(2, color = spec_color()) %>%
+  column_spec(3, color = "white",background = spec_color()) 
+```
+
+]
+
+<br>
+
+.pull-right[
+
+```{r echo=FALSE}
+ejemplo %>% 
+  kableExtra::kbl(booktabs = T) %>% 
+  kable_styling(full_width = F,
+                latex_options = "striped") %>%
+  column_spec(1,width = "5em", bold = T, color = "red") %>%
+  column_spec(2, width = "17em") %>% 
+  column_spec(3, width = "5em")
+```
+
+<br>
+<br>
+
+```{r}
+ejemplo %>% 
+  kbl(booktabs = T, linesep = "") %>%
+  kable_paper(full_width = F) %>%
+  column_spec(2, color = spec_color(1:3)) %>%
+  column_spec(3, color = "white",background = spec_color(1:3)) 
+```
+
+]
+
+---
+
+background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/p843x403/272999058_1083377859124414_1818177703614086731_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeE2z9kc-edRs3NRN6WVPSvK1zfvJfWBx1jXN-8l9YHHWEzNXGzLZF6T_bmCKlaQttK2If2OXh__LWkF2qU5Exa1&_nc_ohc=Xbl4NZ6xJwYAX8wBX9f&_nc_ht=scontent.faqp3-1.fna&oh=00_AT8MnCCnLOxfe55UNZ_vleBFidyNqS-lfRww-UvOURWBiQ&oe=6214E148)
+background-position: left
+background-size: contain
+class: middle,inverse
+background-color: #450920
+
+.pull-right[
+
+## Referencias Importantes
+
+<span style="color:white">- Create Awesome LaTeX Table with knitr::kable and kableExtra</span> [Aqui](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf)
+
+<span style="color:white">- Create Awesome HTML with KableExtra</span> [Aqui](https://cran.microsoft.com/snapshot/2017-06-01/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+
+<span style="color:white">- RDocumentation kable_styling: HTML table attributes</span> [Aqui](https://www.rdocumentation.org/packages/kableExtra/versions/1.3.4/topics/kable_styling)
+
+<span style="color:white">- kableExtra in other rmarkdown HTML themes</span>
+[Aqui](https://haozhu233.github.io/kableExtra/kableExtra_in_other_HTML_themes.html)
+
+<span style="color:white">- kableExtra</span> [Aqui](https://haozhu233.github.io/kableExtra/)
+]

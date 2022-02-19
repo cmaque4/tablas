@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Creación de Tablas</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Carlos Puma" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="index_files/kePrint/kePrint.js"></script>
+    <link href="index_files/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+
+
+class: title-slide, left, middle
+background-image: url("https://pbs.twimg.com/media/FH84FssVIAcZrUp?format=jpg&amp;name=small")
+background-position: right
+background-size: contain
+background-color: #8E3B46
+
+.pull-left[
+
+# Creación de Tablas
+
+## Uso del Paquete kableExtra
+
+### Carlos Puma
+
+### 
+]
+
+---
+
+name: hello
+class: inverse, right, bottom
+background-color: #477890
+
+&lt;img style="border-radius: 50%;" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/cp0/268055985_305487591626398_3079146768246346879_n.jpg?_nc_cat=107&amp;ccb=1-5&amp;_nc_sid=aee45a&amp;_nc_eui2=AeE7wWW1mPIM9ObQaavivn_Ny69MH2ynMQ7Lr0wfbKcxDh4tqiwUsdVPMpxFpkNw70g1ca0PWcxaJ9ial8h8T4MA&amp;_nc_ohc=U5WvVKGig6gAX_BipLz&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_ht=scontent.xx&amp;oh=03_AVKWMXNnE-V-c9U9Zw97aiVAtctulnd3uZ3gh6FurBxelg&amp;oe=622B58A9" width="150px"/&gt;
+
+# Redes...
+
+  &lt;a href="https://twitter.com/PumaMaque"&gt;&lt;img src="https://cdn-icons-png.flaticon.com/128/733/733635.png" width="20px"&gt;&lt;span style="font-size:20px"&gt;&lt;span style="color:white"&gt;@Carlos_Puma&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;
+  &lt;a href="https://github.com/cmaque4"&gt;&lt;img src="https://cdn-icons-png.flaticon.com/128/733/733609.png" alt="twitter" width="20px"&gt;&lt;span style="font-size:20px"&gt;&lt;span style="color:white"&gt;@Carlos_Puma&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;
+  &lt;a href="https://rpubs.com/Carlos_Puma"&gt;&lt;img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="twitter" width="20px"&gt; &lt;span style="font-size:20px"&gt;&lt;span style="color:white"&gt;RPubs.Carlos.Puma&lt;/span&gt;
+  
+---
+background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/273112162_1085417732253760_2466194983918610087_n.jpg?_nc_cat=105&amp;ccb=1-5&amp;_nc_sid=8bfeb9&amp;_nc_eui2=AeGr7EFiqzAuEsswmRpcFcXpEGnMxGik0uEQaczEaKTS4ckqqmwdk26XREPgBHQRXyWrAZOxQnLD2r3eDuVgK9jG&amp;_nc_ohc=-vDaU-tlgUsAX8q0fBY&amp;_nc_ht=scontent.faqp3-1.fna&amp;oh=00_AT-WH1jJxkqqCwapDU-4U7N3BNmmQ4lgIKwCR7dY668RaA&amp;oe=6211E4BB)
+background-position: left
+background-size: 50%
+class: middle
+
+
+.pull-right[
+# Descargar y Llamar el Paquete
+
+Podemos realizarlo de dos formas 
+
+- Instalar directamente con este código
+
+````markdown
+install.packages("kableExtra")
+```
+- Otra forma es poder hacerlo desde la carpeta
+
+````markdown
+devtools::install_github("haozhu233/kableExtra")
+```
+- Finalmente tenemos que llamar a nuestro paquete
+
+````markdown
+library(kableExtra)
+```
+]
+
+---
+
+class: center, middle, inverse
+background-color: #CA6702
+
+# Tablas Pequeñas
+&lt;hr&gt;
+
+---
+
+class: middle, inverse
+background-color: #246A73
+
+# Utilizar código markdown
+
+--
+
+&lt;span style="color:white"&gt;Para construir una tabla sencilla, con pocos datos se puede hacer teniendo en cuenta lo siguiente:&lt;/span&gt;
+
+
+--
+&lt;span style="color:white"&gt;1. Las separaciones de las columnas se hacen con el código "|"&lt;/span&gt;
+
+
+--
+
+&lt;span style="color:white"&gt;2. Para hacer las filas separándolas se utiliza el guión: -----. Junto con esto no se debe olvidar los separadores de las columnas: ----------|-----------|-----------&lt;/span&gt;
+
+--
+
+&lt;span style="color:white"&gt; 3. Se puede utilizar los dos puntos":" para hacer la alineación de las columnas&lt;/span&gt;
+
+--
+
+- &lt;span style="color:white"&gt;|:----| ajustará el contenido a la izquierda (comportamiento por defecto).&lt;/span&gt;
+- &lt;span style="color:white"&gt;|----:| ajustará el contenido a la derecha.&lt;/span&gt;
+- &lt;span style="color:white"&gt;|:---:| ajustará el contenido al centro&lt;/span&gt;
+
+
+---
+
+name: parameters
+
+
+# Ejemplo 
+
+
+.pull-left[
+&lt;div&gt;&lt;p style = 'right;margin:3px 0px'&gt;
+&lt;img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/273735893_343780224311550_610454075782690286_n.png?_nc_cat=105&amp;ccb=1-5&amp;_nc_sid=aee45a&amp;_nc_eui2=AeHduRlv-q3BPZu8p0qYe5ozzigFpdMU_fHOKAWl0xT98UlMokJmJ7y8MCUtyLww56YdfTuuykHjplX-ty6I37Ir&amp;_nc_ohc=GJsvGMe9xD0AX8w-V7Q&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_ht=scontent.xx&amp;oh=03_AVJHvf7GKeHm98HFi1XqxtA_3cuBhRMmBRq3uF6oELH4_Q&amp;oe=623282E5"width="600px" height="310px"&gt;&lt;/p&gt;&lt;/div&gt;
+]
+
+---
+template: parameters
+
+--
+
+.pull-right[
+
+| Plátanos | Manzanas | Peras |
+|-------|-------------|---------|
+| 20 | 20 | 100 |
+| 21 | 25 | 100 |
+| 22 | 30 | 100 |
+| 23 | 35 | 100 |
+| 24 | 40 | 100 |
+
+
+]
+
+---
+
+class: center, middle, inverse
+background-color: #141B41
+
+# Tablas 
+&lt;hr&gt;
+
+---
+
+.pull-left[
+
+## Base
+
+- Primero debemos tener una base de datos para ser colocada como tabla
+
+- Esta base de datos la podemos tener en un excel y traerlo a nuestro `Environment` o podemos crearlo como veremos más adelante
+
+- Otra forma de hacer una tabla es en conjunto con otras funciones las cuales podemos ejercularlas con la función `pipe(%&gt;%)`
+
+&lt;br&gt;
+
+````markdown
+tablas &lt;- read_xlsx("D:\\Proyectos\\Hoja de cálculo sin título.xlsx")
+```
+
+]
+
+
+.pull-right[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+- Tabla HTML básica
+
+
+```r
+kableExtra::kbl(tablas)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+## Temas Alternativos
+
+.pull-left[
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_paper("hover", #Esto hace que resalte la parte de la fila que señalamos, otras opciones son "basic", "striped"
+              full_width = F, 
+              html_font = "sans-serif") #Podemos agregar cualquier tipo de letra, solo tenemos que escribirlo entre las comillas. Ej. arial, helvetica, sans-serif, Cambria
+```
+
+&lt;br&gt;
+
+]
+
+
+.pull-right[
+
+&lt;table class=" lightable-paper lightable-hover" style="font-family: Times New Roman; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+## kable_classic()
+
+.pull-left[
+
+
+```r
+tablas %&gt;%
+  kbl(caption = "Recreating booktabs style table") %&gt;% #con caption podemos dar un titulo a nuesta tablra
+  kable_classic(full_width = F, 
+                html_font = "Cambria" #podemos cambiar el tipo de tema
+                ) 
+```
+
+&lt;br&gt;
+
+]
+
+
+.pull-right[
+
+&lt;table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Titulo de la tabla&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+## Otros estilos de tablas que podemos utilizar
+
+.pull-left[
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_material_dark()
+```
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_classic()
+```
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_classic_2()
+```
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_minimal()
+```
+
+&lt;br&gt;
+
+]
+
+
+.pull-right[
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_material()
+```
+
+
+```r
+tablas %&gt;%
+  kbl() %&gt;%
+  kable_material_dark()
+```
+
+]
+
+---
+
+## kable_styling()
+
+.pull-left[
+
+
+```r
+tablas %&gt;%
+  knitr::kable() %&gt;% 
+  kable_styling(bootstrap_options = "basic",
+  latex_options = "basic",
+  full_width = NULL,
+  position = "center",
+  font_size = NULL,
+  row_label_position = "l",
+  repeat_header_method = c("append", "replace"),
+  repeat_header_continued = FALSE,
+  stripe_index = NULL,
+  latex_table_env = NULL,
+  protect_latex = TRUE,
+  table.envir = "table",
+  fixed_thead = FALSE,
+  htmltable_class = NULL,
+  html_font = NULL,
+  wraptable_width = "0pt"
+  )
+```
+
+]
+
+
+.pull-right[
+
+Se puede modificar nuestra tabla como querramos con la función `kable_styling`, como es el tamaño de nuestra tabla como de su ubicación o tipo de fuentes etc. Solo debemos tener en cuenta los parametros que estan en el paquete o tambien con la ayuda `??kable_styling`
+
+&lt;table class="table table-hover table-condensed table-responsive" style="font-size: 12px; font-family: Times New Roman; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+## Como crear especificando fila y columna
+
+Para crear una tabla con datos que queramos podemos hacerla desde cero siguiendo los siguientes pasos:
+
+&lt;br&gt;
+
+
+.pull-left[
+
+
+```r
+ejemplo &lt;- data.frame(
+  Datos = c("Dato 1", "Dato 2", "Dato 3"),
+  Información = c(
+    "Hay cuatro estaciones en el año. ",
+    "El abecedario comienza con la A. ", 
+    "En la noche sale la luna. "
+  ),
+  Manzanas = c("1","2","3")
+)
+```
+
+]
+
+&lt;br&gt;
+
+
+.pull-right[
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; El abecedario comienza con la A. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; En la noche sale la luna. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+## Más Personalización
+
+.pull-left[
+
+
+```r
+ejemplo %&gt;% 
+  kableExtra::kbl(booktabs = T) %&gt;% 
+  kable_styling(full_width = F,
+                latex_options = "striped") %&gt;%
+  column_spec(1,width = "5em", bold = T, color = "red") %&gt;%
+  column_spec(2, width = "17em") %&gt;% 
+  column_spec(3, width = "5em")
+```
+
+&lt;br&gt;
+
+
+```r
+ejemplo %&gt;% 
+  kbl(booktabs = T, linesep = "") %&gt;%
+  kable_paper(full_width = F) %&gt;%
+  column_spec(2, color = spec_color()) %&gt;%
+  column_spec(3, color = "white",background = spec_color()) 
+```
+
+]
+
+&lt;br&gt;
+
+.pull-right[
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Dato 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Dato 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; El abecedario comienza con la A. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Dato 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; En la noche sale la luna. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Dato 1 &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Dato 2 &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; El abecedario comienza con la A. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Dato 3 &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; En la noche sale la luna. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/p843x403/272999058_1083377859124414_1818177703614086731_n.jpg?_nc_cat=102&amp;ccb=1-5&amp;_nc_sid=8bfeb9&amp;_nc_eui2=AeE2z9kc-edRs3NRN6WVPSvK1zfvJfWBx1jXN-8l9YHHWEzNXGzLZF6T_bmCKlaQttK2If2OXh__LWkF2qU5Exa1&amp;_nc_ohc=Xbl4NZ6xJwYAX8wBX9f&amp;_nc_ht=scontent.faqp3-1.fna&amp;oh=00_AT8MnCCnLOxfe55UNZ_vleBFidyNqS-lfRww-UvOURWBiQ&amp;oe=6214E148)
+background-position: left
+background-size: contain
+class: middle,inverse
+background-color: #450920
+
+.pull-right[
+
+## Referencias Importantes
+
+&lt;span style="color:white"&gt;- Create Awesome LaTeX Table with knitr::kable and kableExtra&lt;/span&gt; [Aqui](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf)
+
+&lt;span style="color:white"&gt;- Create Awesome HTML with KableExtra&lt;/span&gt; [Aqui](https://cran.microsoft.com/snapshot/2017-06-01/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+
+&lt;span style="color:white"&gt;- RDocumentation kable_styling: HTML table attributes&lt;/span&gt; [Aqui](https://www.rdocumentation.org/packages/kableExtra/versions/1.3.4/topics/kable_styling)
+
+&lt;span style="color:white"&gt;- kableExtra in other rmarkdown HTML themes&lt;/span&gt;
+[Aqui](https://haozhu233.github.io/kableExtra/kableExtra_in_other_HTML_themes.html)
+
+&lt;span style="color:white"&gt;- kableExtra&lt;/span&gt; [Aqui](https://haozhu233.github.io/kableExtra/)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
