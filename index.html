@@ -55,7 +55,7 @@ background-color: #477890
   &lt;a href="https://rpubs.com/Carlos_Puma"&gt;&lt;img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="twitter" width="20px"&gt; &lt;span style="font-size:20px"&gt;&lt;span style="color:white"&gt;RPubs.Carlos.Puma&lt;/span&gt;
   
 ---
-background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/273112162_1085417732253760_2466194983918610087_n.jpg?_nc_cat=105&amp;ccb=1-5&amp;_nc_sid=8bfeb9&amp;_nc_eui2=AeGr7EFiqzAuEsswmRpcFcXpEGnMxGik0uEQaczEaKTS4ckqqmwdk26XREPgBHQRXyWrAZOxQnLD2r3eDuVgK9jG&amp;_nc_ohc=-vDaU-tlgUsAX8q0fBY&amp;_nc_ht=scontent.faqp3-1.fna&amp;oh=00_AT-WH1jJxkqqCwapDU-4U7N3BNmmQ4lgIKwCR7dY668RaA&amp;oe=6211E4BB)
+background-image: url(https://pbs.twimg.com/media/FKhTa09XIAIegP6?format=jpg&amp;name=4096x4096)
 background-position: left
 background-size: 50%
 class: middle
@@ -190,7 +190,7 @@ tablas &lt;- read_xlsx("D:\\Proyectos\\Hoja de cálculo sin título.xlsx")
 
 
 ```r
-kableExtra::kbl(tablas)
+tablas %&gt;% kable()
 ```
 
 &lt;table&gt;
@@ -212,15 +212,12 @@ kableExtra::kbl(tablas)
    &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
   &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
-  &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 ]
+
+
 
 ---
 
@@ -262,11 +259,6 @@ tablas %&gt;%
    &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -314,11 +306,6 @@ tablas %&gt;%
    &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -437,11 +424,6 @@ Se puede modificar nuestra tabla como querramos con la función `kable_styling`,
    &lt;td style="text-align:left;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; -5, 14 o 2000 &lt;/td&gt;
   &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 23.1 or 14 &lt;/td&gt;
-  &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -481,26 +463,56 @@ ejemplo &lt;- data.frame(
 &lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 1 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 2 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; El abecedario comienza con la A. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; -5, 14 o 2000 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 3 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; En la noche sale la luna. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Factor &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Estos son vectores que tienen un orden específico o jerarquía de valores &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; Una variable de estatus económico con valores ordenados &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Date &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Una vez que se le dice a R que ciertos datos son Fechas , estos datos se pueden manipular y mostrar de formas especiales. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; 2018-04-12 o 15/3/1954 o miércoles 4 de enero de 1980 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Logical &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Los valores deben ser uno de los dos valores especiales TRUE o FALSE (tenga en cuenta que estos no son "TRUE" y "FALSE" entre comillas) &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; TRUE or FALSE &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; data.frame &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Un marco de datos es cómo R almacena un conjunto de datos típico . Consiste en vectores (columnas) de datos unidos entre sí, que tienen el mismo número de observaciones (filas). &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; El conjunto de datos AJS de ejemplo nombrado linelist_rawcontiene 68 variables con 300 observaciones (filas) cada una. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; tibble &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Los tibbles son una variación del marco de datos, la principal diferencia operativa es que se imprimen mejor en la consola (muestran las primeras 10 filas y solo las columnas que caben en la pantalla) &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; Cualquier marco de datos, lista o matriz se puede convertir en un tibble conas_tibble() &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; list &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30em; "&gt; Una lista es como un vector, pero contiene otros objetos que pueden ser de otras clases diferentes. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; "&gt; ¡Una lista podría contener un solo número, un marco de datos, un vector e incluso otra lista dentro de él! &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -544,26 +556,56 @@ ejemplo %&gt;%
 &lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Dato 1 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Dato 2 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; El abecedario comienza con la A. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; -5, 14 o 2000 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Dato 3 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; En la noche sale la luna. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Factor &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Estos son vectores que tienen un orden específico o jerarquía de valores &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Una variable de estatus económico con valores ordenados &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Date &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Una vez que se le dice a R que ciertos datos son Fechas , estos datos se pueden manipular y mostrar de formas especiales. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2018-04-12 o 15/3/1954 o miércoles 4 de enero de 1980 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Logical &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Los valores deben ser uno de los dos valores especiales TRUE o FALSE (tenga en cuenta que estos no son "TRUE" y "FALSE" entre comillas) &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; TRUE or FALSE &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; data.frame &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Un marco de datos es cómo R almacena un conjunto de datos típico . Consiste en vectores (columnas) de datos unidos entre sí, que tienen el mismo número de observaciones (filas). &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; El conjunto de datos AJS de ejemplo nombrado linelist_rawcontiene 68 variables con 300 observaciones (filas) cada una. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; tibble &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Los tibbles son una variación del marco de datos, la principal diferencia operativa es que se imprimen mejor en la consola (muestran las primeras 10 filas y solo las columnas que caben en la pantalla) &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Cualquier marco de datos, lista o matriz se puede convertir en un tibble conas_tibble() &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; list &lt;/td&gt;
+   &lt;td style="text-align:left;width: 17em; "&gt; Una lista es como un vector, pero contiene otros objetos que pueden ser de otras clases diferentes. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; ¡Una lista podría contener un solo número, un marco de datos, un vector e incluso otra lista dentro de él! &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -574,26 +616,56 @@ ejemplo %&gt;%
 &lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Dato 1 &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Character &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Dato 2 &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; El abecedario comienza con la A. &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; -5, 14 o 2000 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Dato 3 &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; En la noche sale la luna. &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; 23.1 or 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Factor &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Estos son vectores que tienen un orden específico o jerarquía de valores &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; Una variable de estatus económico con valores ordenados &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Date &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; Una vez que se le dice a R que ciertos datos son Fechas , estos datos se pueden manipular y mostrar de formas especiales. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; 2018-04-12 o 15/3/1954 o miércoles 4 de enero de 1980 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Logical &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; Los valores deben ser uno de los dos valores especiales TRUE o FALSE (tenga en cuenta que estos no son "TRUE" y "FALSE" entre comillas) &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; TRUE or FALSE &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; data.frame &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Un marco de datos es cómo R almacena un conjunto de datos típico . Consiste en vectores (columnas) de datos unidos entre sí, que tienen el mismo número de observaciones (filas). &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; El conjunto de datos AJS de ejemplo nombrado linelist_rawcontiene 68 variables con 300 observaciones (filas) cada una. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; tibble &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; Los tibbles son una variación del marco de datos, la principal diferencia operativa es que se imprimen mejor en la consola (muestran las primeras 10 filas y solo las columnas que caben en la pantalla) &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; Cualquier marco de datos, lista o matriz se puede convertir en un tibble conas_tibble() &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; list &lt;/td&gt;
+   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; Una lista es como un vector, pero contiene otros objetos que pueden ser de otras clases diferentes. &lt;/td&gt;
+   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; ¡Una lista podría contener un solo número, un marco de datos, un vector e incluso otra lista dentro de él! &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -602,7 +674,7 @@ ejemplo %&gt;%
 
 ---
 
-background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/p843x403/272999058_1083377859124414_1818177703614086731_n.jpg?_nc_cat=102&amp;ccb=1-5&amp;_nc_sid=8bfeb9&amp;_nc_eui2=AeE2z9kc-edRs3NRN6WVPSvK1zfvJfWBx1jXN-8l9YHHWEzNXGzLZF6T_bmCKlaQttK2If2OXh__LWkF2qU5Exa1&amp;_nc_ohc=Xbl4NZ6xJwYAX8wBX9f&amp;_nc_ht=scontent.faqp3-1.fna&amp;oh=00_AT8MnCCnLOxfe55UNZ_vleBFidyNqS-lfRww-UvOURWBiQ&amp;oe=6214E148)
+background-image: url(https://64.media.tumblr.com/67cb4e24f8fc5a7ac6088c0bd731b611/0a42e655be6de28a-53/s400x600/b50301decccd46f8dae4d704743775fffbfd41ae.gifv)
 background-position: left
 background-size: contain
 class: middle,inverse

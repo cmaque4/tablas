@@ -88,7 +88,7 @@ background-color: #477890
   <a href="https://rpubs.com/Carlos_Puma"><img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="twitter" width="20px"> <span style="font-size:20px"><span style="color:white">RPubs.Carlos.Puma</span>
   
 ---
-background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/273112162_1085417732253760_2466194983918610087_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeGr7EFiqzAuEsswmRpcFcXpEGnMxGik0uEQaczEaKTS4ckqqmwdk26XREPgBHQRXyWrAZOxQnLD2r3eDuVgK9jG&_nc_ohc=-vDaU-tlgUsAX8q0fBY&_nc_ht=scontent.faqp3-1.fna&oh=00_AT-WH1jJxkqqCwapDU-4U7N3BNmmQ4lgIKwCR7dY668RaA&oe=6211E4BB)
+background-image: url(https://pbs.twimg.com/media/FKhTa09XIAIegP6?format=jpg&name=4096x4096)
 background-position: left
 background-size: 50%
 class: middle
@@ -222,10 +222,12 @@ tablas <- read_xlsx("D:\\Proyectos\\Hoja de cálculo sin título.xlsx")
 - Tabla HTML básica
 
 ```{r echo=TRUE}
-kableExtra::kbl(tablas)
+tablas %>% kable()
 ```
 
 ]
+
+
 
 ---
 
@@ -483,7 +485,7 @@ ejemplo %>%
 
 ---
 
-background-image: url(https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/p843x403/272999058_1083377859124414_1818177703614086731_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeE2z9kc-edRs3NRN6WVPSvK1zfvJfWBx1jXN-8l9YHHWEzNXGzLZF6T_bmCKlaQttK2If2OXh__LWkF2qU5Exa1&_nc_ohc=Xbl4NZ6xJwYAX8wBX9f&_nc_ht=scontent.faqp3-1.fna&oh=00_AT8MnCCnLOxfe55UNZ_vleBFidyNqS-lfRww-UvOURWBiQ&oe=6214E148)
+background-image: url(https://64.media.tumblr.com/67cb4e24f8fc5a7ac6088c0bd731b611/0a42e655be6de28a-53/s400x600/b50301decccd46f8dae4d704743775fffbfd41ae.gifv)
 background-position: left
 background-size: contain
 class: middle,inverse
