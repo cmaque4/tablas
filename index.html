@@ -442,7 +442,7 @@ Para crear una tabla con datos que queramos podemos hacerla desde cero siguiendo
 
 
 ```r
-ejemplo &lt;- data.frame(
+nuevo &lt;- data.frame(
   Datos = c("Dato 1", "Dato 2", "Dato 3"),
   Información = c(
     "Hay cuatro estaciones en el año. ",
@@ -463,56 +463,26 @@ ejemplo &lt;- data.frame(
 &lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Clase (Class) &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Explicación &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Ejemplos &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Datos &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Información &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Manzanas &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Character &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Estos son texto/palabras/frases “entre comillas” . No se pueden hacer matemáticas en estos objetos. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; “Los objetos de carácter están entre comillas” &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20em; "&gt; Hay cuatro estaciones en el año. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Integer &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; -5, 14 o 2000 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20em; "&gt; El abecedario comienza con la A. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; 23.1 or 14 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Factor &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Estos son vectores que tienen un orden específico o jerarquía de valores &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; Una variable de estatus económico con valores ordenados &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Date &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Una vez que se le dice a R que ciertos datos son Fechas , estos datos se pueden manipular y mostrar de formas especiales. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; 2018-04-12 o 15/3/1954 o miércoles 4 de enero de 1980 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; Logical &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Los valores deben ser uno de los dos valores especiales TRUE o FALSE (tenga en cuenta que estos no son "TRUE" y "FALSE" entre comillas) &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; TRUE or FALSE &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; data.frame &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Un marco de datos es cómo R almacena un conjunto de datos típico . Consiste en vectores (columnas) de datos unidos entre sí, que tienen el mismo número de observaciones (filas). &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; El conjunto de datos AJS de ejemplo nombrado linelist_rawcontiene 68 variables con 300 observaciones (filas) cada una. &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; tibble &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Los tibbles son una variación del marco de datos, la principal diferencia operativa es que se imprimen mejor en la consola (muestran las primeras 10 filas y solo las columnas que caben en la pantalla) &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; Cualquier marco de datos, lista o matriz se puede convertir en un tibble conas_tibble() &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;font-weight: bold;"&gt; list &lt;/td&gt;
-   &lt;td style="text-align:left;width: 30em; "&gt; Una lista es como un vector, pero contiene otros objetos que pueden ser de otras clases diferentes. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 10em; "&gt; ¡Una lista podría contener un solo número, un marco de datos, un vector e incluso otra lista dentro de él! &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Dato 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20em; "&gt; En la noche sale la luna. &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

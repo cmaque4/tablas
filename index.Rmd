@@ -400,7 +400,7 @@ Para crear una tabla con datos que queramos podemos hacerla desde cero siguiendo
 .pull-left[
 
 ```{r echo=TRUE, eval=FALSE}
-ejemplo <- data.frame(
+nuevo <- data.frame(
   Datos = c("Dato 1", "Dato 2", "Dato 3"),
   Información = c(
     "Hay cuatro estaciones en el año. ",
@@ -419,11 +419,11 @@ ejemplo <- data.frame(
 .pull-right[
 
 ```{r echo=FALSE}
-kable(ejemplo) %>%
+kable(nuevo) %>%
   kable_styling(full_width = F) %>%
   column_spec(1, bold = T) %>%
-  column_spec(2, width = "30em") %>% 
-  column_spec(3, width = "10em")
+  column_spec(2, width = "20em") %>% 
+  column_spec(3, width = "5em")
 ```
 
 ]
