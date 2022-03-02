@@ -461,7 +461,7 @@ ejemplo %>%
 .pull-right[
 
 ```{r echo=FALSE}
-ejemplo %>% 
+tablas %>% 
   kableExtra::kbl(booktabs = T) %>% 
   kable_styling(full_width = F,
                 latex_options = "striped") %>%
@@ -474,7 +474,7 @@ ejemplo %>%
 <br>
 
 ```{r}
-ejemplo %>% 
+tablas %>% 
   kbl(booktabs = T, linesep = "") %>%
   kable_paper(full_width = F) %>%
   column_spec(2, color = spec_color(1:3)) %>%
