@@ -549,8 +549,6 @@ ejemplo %&gt;%
 
 ]
 
-&lt;br&gt;
-
 .pull-right[
 
 &lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
@@ -572,46 +570,9 @@ ejemplo %&gt;%
    &lt;td style="text-align:left;width: 17em; "&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
    &lt;td style="text-align:left;width: 5em; "&gt; -5, 14 o 2000 &lt;/td&gt;
   &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; 23.1 or 14 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Factor &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Estos son vectores que tienen un orden específico o jerarquía de valores &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; Una variable de estatus económico con valores ordenados &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Date &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Una vez que se le dice a R que ciertos datos son Fechas , estos datos se pueden manipular y mostrar de formas especiales. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; 2018-04-12 o 15/3/1954 o miércoles 4 de enero de 1980 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; Logical &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Los valores deben ser uno de los dos valores especiales TRUE o FALSE (tenga en cuenta que estos no son "TRUE" y "FALSE" entre comillas) &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; TRUE or FALSE &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; data.frame &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Un marco de datos es cómo R almacena un conjunto de datos típico . Consiste en vectores (columnas) de datos unidos entre sí, que tienen el mismo número de observaciones (filas). &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; El conjunto de datos AJS de ejemplo nombrado linelist_rawcontiene 68 variables con 300 observaciones (filas) cada una. &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; tibble &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Los tibbles son una variación del marco de datos, la principal diferencia operativa es que se imprimen mejor en la consola (muestran las primeras 10 filas y solo las columnas que caben en la pantalla) &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; Cualquier marco de datos, lista o matriz se puede convertir en un tibble conas_tibble() &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;width: 5em; font-weight: bold;color: red !important;"&gt; list &lt;/td&gt;
-   &lt;td style="text-align:left;width: 17em; "&gt; Una lista es como un vector, pero contiene otros objetos que pueden ser de otras clases diferentes. &lt;/td&gt;
-   &lt;td style="text-align:left;width: 5em; "&gt; ¡Una lista podría contener un solo número, un marco de datos, un vector e incluso otra lista dentro de él! &lt;/td&gt;
-  &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;br&gt;
-&lt;br&gt;
 
 &lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
  &lt;thead&gt;
@@ -631,41 +592,6 @@ ejemplo %&gt;%
    &lt;td style="text-align:left;"&gt; Integer &lt;/td&gt;
    &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; Números que son enteros solamente (sin decimales) &lt;/td&gt;
    &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; -5, 14 o 2000 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Numeric &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; Estos son números y pueden incluir decimales . Si están entre comillas se considerarán clase de carácter. &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; 23.1 or 14 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Factor &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Estos son vectores que tienen un orden específico o jerarquía de valores &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; Una variable de estatus económico con valores ordenados &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Date &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; Una vez que se le dice a R que ciertos datos son Fechas , estos datos se pueden manipular y mostrar de formas especiales. &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; 2018-04-12 o 15/3/1954 o miércoles 4 de enero de 1980 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Logical &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; Los valores deben ser uno de los dos valores especiales TRUE o FALSE (tenga en cuenta que estos no son "TRUE" y "FALSE" entre comillas) &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; TRUE or FALSE &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; data.frame &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(68, 1, 84, 1) !important;"&gt; Un marco de datos es cómo R almacena un conjunto de datos típico . Consiste en vectores (columnas) de datos unidos entre sí, que tienen el mismo número de observaciones (filas). &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; El conjunto de datos AJS de ejemplo nombrado linelist_rawcontiene 68 variables con 300 observaciones (filas) cada una. &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; tibble &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(33, 144, 141, 1) !important;"&gt; Los tibbles son una variación del marco de datos, la principal diferencia operativa es que se imprimen mejor en la consola (muestran las primeras 10 filas y solo las columnas que caben en la pantalla) &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(33, 144, 141, 1) !important;"&gt; Cualquier marco de datos, lista o matriz se puede convertir en un tibble conas_tibble() &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; list &lt;/td&gt;
-   &lt;td style="text-align:left;color: rgba(253, 231, 37, 1) !important;"&gt; Una lista es como un vector, pero contiene otros objetos que pueden ser de otras clases diferentes. &lt;/td&gt;
-   &lt;td style="text-align:left;color: white !important;background-color: rgba(253, 231, 37, 1) !important;"&gt; ¡Una lista podría contener un solo número, un marco de datos, un vector e incluso otra lista dentro de él! &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

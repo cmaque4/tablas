@@ -456,8 +456,6 @@ ejemplo %>%
 
 ]
 
-<br>
-
 .pull-right[
 
 ```{r echo=FALSE}
@@ -470,8 +468,6 @@ tablas %>%
   column_spec(3, width = "5em")
 ```
 
-<br>
-<br>
 
 ```{r}
 tablas %>% 
