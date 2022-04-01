@@ -79,7 +79,7 @@ name: hello
 class: inverse, right, bottom
 background-color: #477890
 
-<img style="border-radius: 50%;" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/cp0/268055985_305487591626398_3079146768246346879_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=aee45a&_nc_eui2=AeE7wWW1mPIM9ObQaavivn_Ny69MH2ynMQ7Lr0wfbKcxDh4tqiwUsdVPMpxFpkNw70g1ca0PWcxaJ9ial8h8T4MA&_nc_ohc=U5WvVKGig6gAX_BipLz&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKWMXNnE-V-c9U9Zw97aiVAtctulnd3uZ3gh6FurBxelg&oe=622B58A9" width="150px"/>
+<img style="border-radius: 50%;" src="https://www.facebook.com/messenger_media/?thread_id=100004280025632&attachment_id=305487588293065&message_id=mid.%24cAAAAB-Oco-aElSHIMF-Y9x0impJg" width="150px"/>
 
 # Redes...
 
