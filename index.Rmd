@@ -79,7 +79,7 @@ name: hello
 class: inverse, right, bottom
 background-color: #477890
 
-<img style="border-radius: 50%;" src="https://www.facebook.com/messenger_media/?thread_id=100004280025632&attachment_id=305487588293065&message_id=mid.%24cAAAAB-Oco-aElSHIMF-Y9x0impJg" width="150px"/>
+<img style="border-radius: 50%;" src="https://scontent.faqp3-1.fna.fbcdn.net/v/t1.15752-9/269975978_4813364912057603_3696184310843055192_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Y0ch_3Ta3h8AX8XvFrT&_nc_ht=scontent.faqp3-1.fna&oh=03_AVI1UbM26sjjHO75eTZh7pyKLgPBqM4GIcAdTW6qrZAQTw&oe=626EA153" width="165px"/>
 
 # Redes...
 
@@ -165,7 +165,7 @@ name: parameters
 
 .pull-left[
 <div><p style = 'right;margin:3px 0px'>
-<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/273735893_343780224311550_610454075782690286_n.png?_nc_cat=105&ccb=1-5&_nc_sid=aee45a&_nc_eui2=AeHduRlv-q3BPZu8p0qYe5ozzigFpdMU_fHOKAWl0xT98UlMokJmJ7y8MCUtyLww56YdfTuuykHjplX-ty6I37Ir&_nc_ohc=GJsvGMe9xD0AX8w-V7Q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVJHvf7GKeHm98HFi1XqxtA_3cuBhRMmBRq3uF6oELH4_Q&oe=623282E5"width="600px" height="310px"></p></div>
+<img src="https://scontent.faqp3-1.fna.fbcdn.net/v/t1.15752-9/273735893_343780224311550_610454075782690286_n.png?_nc_cat=105&ccb=1-5&_nc_sid=ae9488&_nc_ohc=1hKs-bbaQXYAX_hbfA8&_nc_ht=scontent.faqp3-1.fna&oh=03_AVJ33zB1KUZAqDHhwQQnk3u4XRV1AGXM41e5MVACgLtHFQ&oe=626DD665"width="600px" height="310px"></p></div>
 ]
 
 ---
